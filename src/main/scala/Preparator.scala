@@ -2,10 +2,12 @@ package org.template.clustering
 
 import io.prediction.controller.PPreparator
 import org.apache.spark.mllib.linalg.Vector
-
 import org.apache.spark.SparkContext
-import org.apache.spark.SparkContext._
 import org.apache.spark.rdd.RDD
+
+class PreparedData(
+  val points: RDD[Vector]
+) extends Serializable
 
 class Preparator
   extends PPreparator[TrainingData, PreparedData] {
@@ -15,6 +17,4 @@ class Preparator
   }
 }
 
-class PreparedData(
-  val points: RDD[Vector]
-) extends Serializable
+

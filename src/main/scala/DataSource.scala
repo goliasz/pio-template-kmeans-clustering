@@ -4,8 +4,9 @@ import io.prediction.controller.PDataSource
 import io.prediction.controller.EmptyEvaluationInfo
 import io.prediction.controller.EmptyActualResult
 import io.prediction.controller.Params
-import io.prediction.data.storage.Event
-import io.prediction.data.storage.Storage
+//import io.prediction.data.storage.Event
+//import io.prediction.data.storage.Storage
+import io.prediction.data.store.PEventStore
 import org.apache.spark.mllib.linalg.Vector
 import org.apache.spark.mllib.linalg.Vectors
 import org.apache.spark.SparkContext
@@ -17,17 +18,16 @@ import grizzled.slf4j.Logger
 case class DataSourceParams(appName: String) extends Params
 
 class DataSource(val dsp: DataSourceParams)
-  extends PDataSource[TrainingData,
-    EmptyEvaluationInfo, Query, EmptyActualResult] {
+  extends PDataSource[TrainingData, EmptyEvaluationInfo, Query, EmptyActualResult] {
 
   @transient lazy val logger = Logger[this.type]
 
   override
   def readTraining(sc: SparkContext): TrainingData = {
-    val points = Storage.getPEvents()
+    //val points = Storage.getPEvents()
 
     println("Gathering data from event server.")
-	val pointsRDD: RDD[Vector] = points.aggregateProperties(
+	val pointsRDD: RDD[Vector] = PEventStore.aggregateProperties(
       appName = dsp.appName,
       entityType = "point",
       required = Some(List("attr0","attr1")))(sc)
@@ -53,8 +53,4 @@ class DataSource(val dsp: DataSourceParams)
 
 class TrainingData(
   val points: RDD[Vector]
-) extends Serializable {
-  override def toString = {
-    s"events: [${points.count()}] (${points.take(2).toList}...)"
-  }
-}
+) extends Serializable
