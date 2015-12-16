@@ -24,7 +24,7 @@ class KMeansAlgorithm(val ap: AlgorithmParams) extends P2LAlgorithm[PreparedData
 
   def train(sc: SparkContext, data: PreparedData): KMeansModel = {
     println("Running the K-Means clustering algorithm.")
-    KMeans.train(data.points, ap.numberOfCenters, ap.numberOfIterations, ap.numberOfRuns, ap.initMode, ap.seed)
+    KMeans.train(data.points.cache, ap.numberOfCenters, ap.numberOfIterations, ap.numberOfRuns, ap.initMode, ap.seed)
   }
 
   def predict(model: KMeansModel, query: Query): PredictedResult = {
