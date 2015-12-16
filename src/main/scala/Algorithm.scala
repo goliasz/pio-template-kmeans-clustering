@@ -12,7 +12,10 @@ import grizzled.slf4j.Logger
 
 case class AlgorithmParams(
   val numberOfCenters: Int,
-  val numberOfIterations: Int
+  val numberOfIterations: Int,
+  val numberOfRuns: Int,
+  val initMode: String,
+  val seed: Int
 ) extends Params
 
 class KMeansAlgorithm(val ap: AlgorithmParams) extends P2LAlgorithm[PreparedData, KMeansModel, Query, PredictedResult] {
@@ -21,10 +24,7 @@ class KMeansAlgorithm(val ap: AlgorithmParams) extends P2LAlgorithm[PreparedData
 
   def train(sc: SparkContext, data: PreparedData): KMeansModel = {
     println("Running the K-Means clustering algorithm.")
-    val kMeans = new KMeans()
-    kMeans.setK(ap.numberOfCenters)
-	kMeans.setMaxIterations(ap.numberOfIterations)
-    kMeans.run(data.points)
+    KMeans.train(data.points, ap.numberOfCenters, ap.numberOfIterations, ap.numberOfRuns, ap.initMode, ap.seed)
   }
 
   def predict(model: KMeansModel, query: Query): PredictedResult = {

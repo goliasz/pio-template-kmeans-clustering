@@ -12,7 +12,10 @@
       "name": "kmeans",
       "params": {
         "numberOfCenters" : 10,
-		"numberOfIterations" : 100
+		"numberOfIterations" : 100,
+        "numberOfRuns" : 1,
+        "initMode" : "k-means||",
+        "seed" : 75
       }
     }
   ]

@@ -19,7 +19,7 @@ object ClusteringEngine extends EngineFactory {
     new Engine(
       classOf[DataSource],
       classOf[Preparator],
-      Map("kmeans" -> classOf[Algorithm]),
+      Map("kmeans" -> classOf[KMeansAlgorithm]),
       	classOf[Serving])
   }
 }
