@@ -1,3 +1,3 @@
 #!/bin/sh
 
-pio import --appid $1 --input test_data.txt
+pio import --appid $1 --input data/test_data.txt
