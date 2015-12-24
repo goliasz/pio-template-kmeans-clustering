@@ -1,5 +1,7 @@
 # pio-template-kmeans-clustering
 
+PredictionIO template clustering 2D points. 
+
 ## Docker Part
 
 docker pull goliasz/docker-predictionio<br>
