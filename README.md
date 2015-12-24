@@ -14,11 +14,12 @@ docker run --hostname pio1 --privileged=true --name pio1 -it -p 8000:8000 -p 707
 root@pio1:/# pio-start-all<br>
 root@pio1:/# cd MyEngine<br>
 root@pio1:/MyEngine# pio template get goliasz/pio-template-kmeans-clustering --version "0.3" geoclus<br>
-root@pio1:/MyEngine/textsim# vi engine.json<br>
+root@pio1:/MyEngine# cd geoclus
+root@pio1:/MyEngine/geoclus# vi engine.json<br>
 Set application name to “geoclus”<br>
 <br>
-root@pio1:/MyEngine/textsim# pio build --verbose<br>
-root@pio1:/MyEngine/textsim# pio app new geoclus<br>
-root@pio1:/MyEngine/textsim# sh ./data/import.sh [YOUR APP ID from "pio app new textsim" output]<br>
-root@pio1:/MyEngine/textsim# pio train<br>
-root@pio1:/MyEngine/textsim# pio deploy --port 8000<br>
+root@pio1:/MyEngine/geoclus# pio build --verbose<br>
+root@pio1:/MyEngine/geoclus# pio app new geoclus<br>
+root@pio1:/MyEngine/geoclus# sh ./data/import.sh [YOUR APP ID from "pio app new textsim" output]<br>
+root@pio1:/MyEngine/geoclus# pio train<br>
+root@pio1:/MyEngine/geoclus# pio deploy --port 8000<br>
