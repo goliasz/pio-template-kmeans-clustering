@@ -7,11 +7,15 @@ case class Query(
 ) extends Serializable
 
 case class PredictedResult(
-  val cluster: Double) 
+  val cluster: Double,
+  val clusterCenter: Array[Double]
+) 
 extends Serializable
 
 case class ActualResult(
-  val cluster: Double) 
+  val cluster: Double,
+  val clusterCenter: Array[Double]
+) 
 extends Serializable
 
 object ClusteringEngine extends EngineFactory {

@@ -11,11 +11,12 @@
     {
       "name": "kmeans",
       "params": {
-        "numberOfCenters" : 10,
-		"numberOfIterations" : 100,
-        "numberOfRuns" : 1,
-        "initMode" : "k-means||",
-        "seed" : 75
+        "numberOfCenters": 10,
+        "numberOfIterations": 100,
+        "numberOfRuns": 1,
+        "initMode": "k-means||",
+        "seed": 75,
+        "saveClusterCenters": false
       }
     }
   ]
