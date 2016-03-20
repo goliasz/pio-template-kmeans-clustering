@@ -41,6 +41,6 @@ class KMeansAlgorithm(val ap: AlgorithmParams) extends P2LAlgorithm[PreparedData
 
   def predict(model: KMeansModel, query: Query): PredictedResult = {
     val result = model.predict(Vectors.dense(query.point))
-    PredictedResult(cluster = result)
+    PredictedResult(cluster = result, clusterCenter = model.clusterCenters(result).toArray)
   }
 }
