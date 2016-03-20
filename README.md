@@ -13,7 +13,7 @@ docker run --hostname pio1 --name pio1 -it -v $HOME/MyEngine:/MyEngine goliasz/d
 ```
 root@pio1:/# pio-start-all
 root@pio1:/# cd MyEngine
-root@pio1:/MyEngine# pio template get goliasz/pio-template-kmeans-clustering --version "0.4" geoclus
+root@pio1:/MyEngine# pio template get goliasz/pio-template-kmeans-clustering --version "0.5" geoclus
 root@pio1:/MyEngine# cd geoclus
 root@pio1:/MyEngine/geoclus# vi engine.json
 ```
