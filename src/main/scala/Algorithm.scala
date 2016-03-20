@@ -9,6 +9,7 @@ import org.apache.spark.rdd.RDD
 import org.apache.spark.mllib.linalg.Vector
 import org.apache.spark.mllib.linalg.Vectors
 import grizzled.slf4j.Logger
+import org.apache.spark.sql.SQLContext
 
 case class AlgorithmParams(
   val numberOfCenters: Int,
