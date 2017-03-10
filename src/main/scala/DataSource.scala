@@ -1,12 +1,12 @@
 package org.template.clustering
 
-import io.prediction.controller.PDataSource
-import io.prediction.controller.EmptyEvaluationInfo
-import io.prediction.controller.EmptyActualResult
-import io.prediction.controller.Params
+import org.apache.predictionio.controller.PDataSource
+import org.apache.predictionio.controller.EmptyEvaluationInfo
+import org.apache.predictionio.controller.EmptyActualResult
+import org.apache.predictionio.controller.Params
 //import io.prediction.data.storage.Event
 //import io.prediction.data.storage.Storage
-import io.prediction.data.store.PEventStore
+import org.apache.predictionio.data.store.PEventStore
 import org.apache.spark.mllib.linalg.Vector
 import org.apache.spark.mllib.linalg.Vectors
 import org.apache.spark.SparkContext

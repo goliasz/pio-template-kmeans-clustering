@@ -1,6 +1,6 @@
 package org.template.clustering
 
-import io.prediction.controller.{Engine,EngineFactory}
+import org.apache.predictionio.controller.{Engine,EngineFactory}
 
 case class Query(
   val point: Array[Double]
